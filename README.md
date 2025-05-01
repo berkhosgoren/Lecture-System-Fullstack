@@ -53,6 +53,7 @@ LectureSystem is a full-stack web application built with Angular (Frontend) and 
 cd Back-End
 dotnet ef database update
 dotnet run
+```
 
 ### 💻 Frontend
 
@@ -64,8 +65,14 @@ ng serve
 
 ---
 
-### 🛡 Notes
-- Default Admin Login is seeded via DBInitializer
-  Username: admin
-  Password: admin123
+## 🔐 Default Admin Login
+> Seeded via `DbInitializer.cs`
 
+- **Username**: `admin`
+- **Password**: `admin123`
+
+---
+
+## ⚠️ Notes
+- `appsettings.json` and `appsettings.Development.json` are ignored via `.gitignore`
+- CORS is allowed for `http://localhost:4200` in backend (`Program.cs`)

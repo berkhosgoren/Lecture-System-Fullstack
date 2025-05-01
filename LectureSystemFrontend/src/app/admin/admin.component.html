@@ -1,0 +1,80 @@
+<div class="admin-panel">
+  <h2>Admin Panel</h2>
+  <!-- Buttons -->
+  <button pButton label="List Users" (click)="toggleUserList()" class="p-mr-2"></button>
+  <button pButton label="Assign Students to Supervisor" class="p-mr-2" (click)="openAssignModal()"></button>
+  <button pButton label="Logout" class="p-button-danger logout-button" (click)="logout()"></button>
+  <!-- User List Table -->
+  <p-table *ngIf="showUserList" [value]="users" styleClass="p-datatable-gridlines" [tableStyle]="{'min-width': '100%'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <!-- Flexbox Container for buttons -->
+          <div class="action-buttons">
+            <button pButton icon="pi pi-pencil" class="p-button-info" (click)="onEdit(user)"></button>
+            <button pButton icon="pi pi-user-edit" class="p-button-warning" (click)="onAssignRole(user)"></button>
+            <button pButton icon="pi pi-trash" class="p-button-danger" (click)="onDelete(user.id)"></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <!-- Assign Role Section -->
+  <div *ngIf="assignRoleSelectedUserId !== null">
+    <h3>Assign Role to User</h3>
+    <label>Role</label>
+    <p-dropdown 
+          [options]="['Student', 'Supervisor', 'Lecturer', 'Admin']" 
+          [(ngModel)]="editRole" 
+          placeholder="Select Role"
+          [style]="{ width: '100%' }">
+</p-dropdown>
+    <button pButton label="Assign Role" (click)="onSaveAssignedRole()"></button>
+  </div>
+  <!-- Edit User Form -->
+  <div *ngIf="selectedUserId !== null">
+    <h3>Edit User</h3>
+    <label>Username</label>
+    <input type="text" pInputText [(ngModel)]="editUsername" />
+    <button pButton label="Save Changes" (click)="onSaveChanges()"></button>
+  </div>
+  <p-toast></p-toast>
+  <!-- Assigning Students to Supervisors -->
+  <p-dialog header="Assign Students to Supervisor" [(visible)]="showAssignModal" [modal]="true" [responsive]="true" (onShow)="loadSupervisorsAndStudents()">
+    <div class="p-grid">
+      <div class="p-col">
+        <h4>Assign Students to Supervisor</h4>
+        <!-- Supervisor Dropdown -->
+        <label>Supervisors</label>
+        <p-dropdown [options]="supervisors" [(ngModel)]="selectedSupervisor" optionLabel="username" placeholder="Select a Supervisor" [style]="{width: '100%'}">
+        </p-dropdown>
+        <!-- PickList for Students -->
+        <p-pickList 
+          [source]="studentsTransfer.source" 
+          [target]="studentsTransfer.target" 
+          sourceHeader="Available Students" 
+          targetHeader="Selected Students" 
+          dragdrop="true"
+          [sourceStyle]="{ height: '300px' }"
+          [targetStyle]="{ height: '300px' }"
+        >
+          <ng-template let-student pTemplate="item">
+            {{ student.username }}
+          </ng-template>
+        </p-pickList>
+        <!-- Assign and Cancel Buttons -->
+        <button pButton label="Assign" class="p-button-success" (click)="assignStudentsToSupervisor()"></button>
+        <button pButton label="Cancel" class="p-button-secondary" (click)="closeAssignModal()"></button>
+      </div>
+    </div>
+  </p-dialog>
+</div>

@@ -1,0 +1,10 @@
+<div class="lecturer-form">
+  <h2 class="form-title">Delete Lecture</h2>
+
+  <div class="form-field">
+    <label for="lectureId">Lecture ID</label>
+    <input id="lectureId" type="number" [(ngModel)]="lectureId" name="lectureId" required />
+  </div>
+
+  <button pButton label="Delete Lecture" class="submit-button p-button-danger" (click)="deleteLecture()" [disabled]="!lectureId"></button>
+</div>

@@ -1,0 +1,75 @@
+<div class="p-card">
+  <h2>Student Panel</h2>
+
+  <!-- Status Section -->
+  <div *ngIf="submissionStatus">
+    <p><strong>Program Status:</strong> {{ submissionStatus }}</p>
+  </div>
+
+  <!-- Choose a Program Button -->
+  <button pButton label="Choose a Program" (click)="loadLectures()" [disabled]="isLoading"></button>
+
+  <!-- Lecture Selection Table -->
+  <div class="lecture-selection-table">
+    <div *ngIf="lectures.length > 0" class="table-responsive">  <!-- Added scrollable container -->
+      <p-table [value]="lectures" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Lecture Name</th>
+            <th>Days</th>
+            <th>Start Time</th>
+            <th>Max Enrollment</th>
+            <th>Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lecture>
+          <tr>
+            <td>{{ lecture.lectureName }}</td>
+            <td>{{ lecture.days }}</td>
+            <td>{{ lecture.startTime | date: 'shortDate' }}</td>
+            <td>{{ lecture.maxEnrollment }}</td>
+            <td>
+              <button pButton label="Add to Program" (click)="addLectureToProgram(lecture)" class="p-button-success"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <!-- Your Program Table -->
+  <div class="calendar-showcase" *ngIf="selectedLectures.length > 0">
+    <h3>Your Program</h3>
+    <div class="table-responsive"> <!-- Added scrollable container for selected lectures -->
+      <p-table [value]="selectedLectures" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Lecture Name</th>
+            <th>Days</th>
+            <th>Start Time</th>
+            <th>Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lecture>
+          <tr>
+            <td>{{ lecture.lectureName }}</td>
+            <td>{{ lecture.days }}</td>
+            <td>{{ lecture.startTime | date: 'shortDate' }}</td>
+            <td>
+              <button pButton label="Remove from Program" (click)="removeLectureFromProgram(lecture)" class="p-button-danger"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <!-- Submit Program Button -->
+  <button pButton label="Submit Program" (click)="submitProgram()" [disabled]="isLoading || selectedLectures.length === 0"></button>
+
+  <!-- Check Program Status Button -->
+  <button pButton label="Check Program Status" (click)="checkProgramStatus(1)"></button>
+
+  <!-- Logout Button -->
+  <button pButton label="Logout" class="p-button-danger" (click)="logout()"></button>
+</div>

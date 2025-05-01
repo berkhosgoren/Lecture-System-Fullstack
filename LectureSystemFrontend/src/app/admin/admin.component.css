@@ -1,0 +1,51 @@
+.admin-panel {
+  max-width: 1200px; /* Increase max-width to fit content */
+  margin: 20px auto;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+.p-datatable-gridlines {
+  width: 100%; /* Ensure the table takes the full width */
+  margin-top: 20px;
+}
+
+.p-datatable-gridlines th, .p-datatable-gridlines td {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* Flexbox for aligning buttons side by side */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.action-buttons button {
+  margin-right: 5px;
+}
+
+/* Ensure the table stretches properly */
+p-table {
+  margin-top: 20px;
+}
+
+.logout-button {
+  margin-top: 10px;
+}
+
+p-dialog {
+  width: 500px !important;
+}
+
+p-listbox, p-multiselect {
+  width: 100%;
+}

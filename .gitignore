@@ -1,0 +1,17 @@
+# Backend (.NET)
+LectureSystemAPI/**/bin/
+LectureSystemAPI/**/obj/
+LectureSystemAPI/**/*.user
+LectureSystemAPI/**/*.suo
+LectureSystemAPI/**/appsettings.Development.json
+LectureSystemAPI/**/appsettings.json
+
+# Frontend (Angular)
+LectureSystemFrontend/node_modules/
+LectureSystemFrontend/dist/
+LectureSystemFrontend/.angular/
+LectureSystemFrontend/.env
+
+# Common
+.env
+Uploads/

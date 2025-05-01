@@ -1,0 +1,29 @@
+<div class="p-card">
+  <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" type="text" pInputText [(ngModel)]="username" name="username" required />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" pPassword [(ngModel)]="password" name="password" required [feedback]="!isLoginMode" />
+      </div>
+      <div *ngIf="!isLoginMode" class="field">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" pPassword [(ngModel)]="confirmPassword" name="confirmPassword" required [feedback]="true" />
+      </div>
+
+      <div *ngIf="loginError" style="color: red; margin: 10px 0;">
+        {{ loginError }}
+      </div>
+
+      <p-button label="{{ isLoginMode ? 'Login' : 'Register' }}" type="submit"></p-button>
+    </div>
+  </form>
+  <a href="#" (click)="toggleMode($event)">
+    {{ isLoginMode ? 'Switch to Register' : 'Switch to Login' }}
+  </a>
+</div>

@@ -1,0 +1,91 @@
+/* Main card container */
+.p-card {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Panel Header */
+.p-card h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Button styles */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+.submit-button.p-button-danger {
+  background-color: #dc3545;
+}
+
+.submit-button.p-button-info {
+  background-color: #17a2b8;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button.p-button-danger:hover {
+  background-color: #c82333;
+}
+
+.submit-button.p-button-info:hover {
+  background-color: #138496;
+}
+
+/* Assigned Students List */
+.assigned-students-list {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.assigned-students-list h3 {
+  color: #333;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.students-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.student-info {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Button inside the student-item */
+.view-programs-btn {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}

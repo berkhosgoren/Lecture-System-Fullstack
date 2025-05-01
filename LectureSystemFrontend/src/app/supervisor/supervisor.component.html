@@ -1,0 +1,56 @@
+<p-panel header="Supervisor Dashboard">
+  <div class="p-fluid">
+    <!-- Logout -->
+    <p-button label="Logout" (click)="logout()" class="p-button-danger p-mb-3"></p-button>
+
+    <!-- List Assigned Students -->
+    <p-button label="List Assigned Students" (click)="listAssignedStudents()" class="p-button-success p-mb-3"></p-button>
+
+    <!-- Assigned Students Table -->
+    <p-table [value]="assignedStudents" *ngIf="assignedStudents.length > 0">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Student ID</th>
+          <th>Username</th>
+          <th>Programs</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-student>
+        <tr>
+          <td>{{ student.id }}</td>
+          <td>{{ student.username }}</td>
+          <td>
+            <p-button label="Get Programs" icon="pi pi-search" (click)="getStudentPrograms(student.id)" class="p-button-sm"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <!-- Student Programs -->
+    <div *ngIf="studentPrograms.length > 0" class="p-mt-4">
+      <h3>Student Programs</h3>
+
+      <p-panel *ngFor="let program of studentPrograms" [header]="'Program #' + program.id + ' - ' + program.status">
+        <div>
+          <p-button label="View Lectures" icon="pi pi-eye" (click)="program.showDetails = !program.showDetails" class="p-button-secondary p-mb-2"></p-button>
+
+          <!-- Program Lectures List -->
+          <ul *ngIf="program.showDetails">
+            <li *ngFor="let lecture of program.programLectures">
+              <strong>{{ lecture.lecture.lectureName }}</strong>
+              — {{ lecture.lecture.days }} at {{ lecture.lecture.startTime }}
+            </li>
+          </ul>
+
+          <!-- Approve/Deny Buttons -->
+          <div class="p-mt-2">
+            <p-button label="Approve" icon="pi pi-check" class="p-button-success p-mr-2"
+                      (click)="approveProgram(program.id)"></p-button>
+            <p-button label="Deny" icon="pi pi-times" class="p-button-danger"
+                      (click)="denyProgram(program.id)"></p-button>
+          </div>
+        </div>
+      </p-panel>
+    </div>
+  </div>
+</p-panel>

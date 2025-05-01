@@ -1,0 +1,150 @@
+/* Main card container - Full width */
+.p-card {
+  max-width: 100%; /* Set max width to 100% */
+  width: 90%; /* Set width to 90% of the page */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Header text */
+.p-card h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Table container - make it scrollable */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.p-datatable {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+  table-layout: auto; /* Prevent fixed table layout */
+}
+
+/* Adjustments for the table with gridlines */
+.p-datatable-gridlines .p-datatable-thead > tr > th,
+.p-datatable-gridlines .p-datatable-tbody > tr > td {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Header row styling */
+.p-datatable-thead > tr > th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+/* Hover effect on table rows */
+.p-datatable-tbody > tr:hover > td {
+  background-color: #f1f1f1;
+}
+
+/* Buttons inside table cells */
+.p-datatable-gridlines .p-button {
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  background-color: #28a745;
+  border-radius: 5px;
+}
+
+.p-datatable-gridlines .p-button-danger {
+  background-color: #dc3545;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+.p-datatable-gridlines .p-button:hover {
+  background-color: #218838;
+}
+
+.p-datatable-gridlines .p-button-danger:hover {
+  background-color: #c82333;
+}
+
+/* Calendar showcase for selected lectures */
+.calendar-showcase {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.calendar-showcase h3 {
+  color: #007bff;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Submit and other buttons */
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Specific styling for the logout button */
+.p-button-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.p-button-danger:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .p-card {
+      padding: 1rem;
+      width: 100%;
+  }
+
+  .p-datatable-thead > tr > th,
+  .p-datatable-tbody > tr > td {
+      padding: 8px 10px;
+      font-size: 0.9rem;
+  }
+
+  button {
+      font-size: 0.9rem;
+      padding: 10px;
+  }
+
+  .p-datatable-gridlines .p-button,
+  .p-datatable-gridlines .p-button-danger {
+      padding: 4px 8px;
+      font-size: 0.8rem;
+  }
+}

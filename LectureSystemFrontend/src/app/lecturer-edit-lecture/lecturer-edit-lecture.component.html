@@ -1,0 +1,27 @@
+<div class="lecturer-form">
+  <h2 class="form-title">Edit Lecture</h2>
+
+  <form (ngSubmit)="updateLecture()">
+    <div class="form-field">
+      <label for="lectureName">Lecture Name</label>
+      <input id="lectureName" type="text" pInputText [(ngModel)]="lectureData.lectureName" name="lectureName" required />
+    </div>
+
+    <div class="form-field">
+      <label for="startTime">Start Time</label>
+      <input id="startTime" type="datetime-local" [(ngModel)]="lectureData.startTime" name="startTime" required />
+    </div>
+
+    <div class="form-field">
+      <label for="days">Days</label>
+      <input id="days" type="text" pInputText [(ngModel)]="lectureData.days" name="days" placeholder="e.g., Monday, Wednesday" required />
+    </div>
+
+    <div class="form-field">
+      <label for="maxEnrollment">Max Enrollment</label>
+      <input id="maxEnrollment" type="number" [(ngModel)]="lectureData.maxEnrollment" name="maxEnrollment" />
+    </div>
+
+    <button pButton label="Update Lecture" type="submit" class="submit-button"></button>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+/* Center the form in the middle of the page */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    background-color: #f4f4f9; /* Light background color */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Card container */
+  .p-card {
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Form input styling */
+  .p-fluid .field {
+    margin-bottom: 15px;
+  }
+  
+  .p-fluid label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .p-fluid input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  /* Button styling */
+  .p-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  /* Link for toggling between login and register */
+  a {
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

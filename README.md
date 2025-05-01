@@ -46,6 +46,14 @@ LectureSystem is a full-stack web application built with Angular (Frontend) and 
 
 ---
 
+## 🧩 Entity Relationship Diagram
+
+This diagram illustrates the database schema of the Lecture System:
+
+![Entity Relationship Diagram](./er-diagram.png)
+
+---
+
 ## 🚀 How to Run
 
 ### Backend (.NET API)
